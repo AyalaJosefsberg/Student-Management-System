@@ -26,6 +26,11 @@ export function SideBar() {
               תלמידות מצטיינות
             </NavLink>
           </li>
+           <li>
+            <NavLink to="/users" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+             משתמשים
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </aside>

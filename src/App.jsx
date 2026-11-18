@@ -7,6 +7,7 @@ import { SideBar } from "./components/SideBar";
 import { students } from "./data/students";
 import { Home } from "./pages/Home";
 import { StudentDetails } from "./pages/StudentDetails";
+import { Users } from './pages/Users'
 import './App.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path='/students' element={<Students students={students} />} />
       <Route path='/excellent' element={<ExcellentStudents />} />
         <Route path='/student/:id' element={<StudentDetails />} />
+        <Route path='/users' element={<Users />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   </main>
