@@ -1,0 +1,334 @@
+/* ===== משתנים כלליים ===== */
+:root {
+  --primary: #ea73a2;
+  --primary-dark: #b32b61;
+  --bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text: #2d3748;
+  --muted: #718096;
+  --success: #2f9e6e;
+  --warning: #e0a030;
+  --danger: #d9534f;
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== בסיס ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  direction: rtl;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#root {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* ===== כותרת ===== */
+.header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 24px;
+  text-align: center;
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* ===== כפתורים ושדה חיפוש ===== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.controls button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.controls button:hover {
+  background-color: var(--primary-dark);
+}
+
+.controls button:active {
+  transform: scale(0.97);
+}
+
+.controls input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: white;
+}
+
+.controls input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+}
+
+/* ===== סטטיסטיקה ===== */
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statistics p {
+  flex: 1;
+  min-width: 160px;
+  margin: 0;
+  padding: 18px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  font-weight: 600;
+  border-top: 4px solid var(--primary);
+}
+
+/* ===== רשימת תלמידות ===== */
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* ===== כרטיס תלמידה ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+}
+
+.card p {
+  margin: 6px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ===== תגיות סטטוס (אופציונלי, ראי הסבר) ===== */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.badge.excellent {
+  background-color: var(--success);
+}
+
+.badge.improve {
+  background-color: var(--danger);
+}
+
+.badge.active {
+  background-color: var(--primary);
+}
+
+.badge.inactive {
+  background-color: var(--muted);
+}
+
+/* ===== מסכים קטנים ===== */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.4rem;
+  }
+
+  .controls button,
+  .controls input {
+    width: 100%;
+  }
+}
+/* מעטפת התפריט בצד */
+.sidebar {
+  width: 260px;
+  background-color: #f8fafc;
+  border-left: 1px solid #e2e8f0; /* קו הפרדה עדין מימין לשמאל */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.02);
+}
+
+/* כותרת התפריט */
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1e293b;
+  margin-bottom: 24px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* ביטול הנקודות של הרשימה */
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* רווח נעים בין הקישורים */
+}
+
+/* עיצוב בסיסי לקישורים */
+.nav-link {
+  display: block;
+  padding: 12px 16px;
+  color: #64748b;
+  text-decoration: none; /* הורדת הקו התחתון המכוער */
+  font-weight: 500;
+  border-radius: 8px; /* פינות מעוגלות */
+  transition: all 0.2s ease-in-out;
+  text-align: right;
+}
+
+/* מעבר עכבר (Hover) */
+.nav-link:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* עיצוב כשהקישור פעיל (העמוד הנוכחי) */
+.nav-link.active {
+  background-color: #e0e7ff; /* רקע צבעוני עדין */
+  color: #4f46e5; /* צבע טקסט בולט */
+  font-weight: bold;
+}
+/* --- עיצוב כללי לאפליקציה --- */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  direction: rtl;
+  text-align: right;
+}
+
+/* מעטפת ראשית ששומרת על פלקס (תפריט מצד שמאל/ימין ותוכן מימין לשמאל) */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* אזור תוכן העמוד המרכזי */
+.main-content {
+  flex: 1;
+  padding: 32px;
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+/* כותרות עמודים אחידות */
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+/* --- עיצוב כרטיסים אחיד (לתלמידות, דשבורד וכו') --- */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* גריד אחיד להצגת רשימות (כמו כל התלמידות או מצטיינות) */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* --- כפתורים וקישורים אחידים --- */
+.btn-primary {
+  display: inline-block;
+  background-color: #4f46e5;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+/* תגיות סטטוס (פעילה / מצטיינת) */
+.badge-success {
+  background-color: #dcfce7;
+  color: #15803d;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.badge-warning {
+  background-color: #fef9c3;
+  color: #a16207;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+}
