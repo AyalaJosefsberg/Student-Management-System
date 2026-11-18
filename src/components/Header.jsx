@@ -1,6 +1,7 @@
-export function Header(){
-    return
-    <Header >
-          <h2>{title}</h2>
-    </Header>
+export function Header({ title }) {
+    return (
+        <header style={{ marginBottom: '20px' }}>
+            <h2>{title}</h2>
+        </header>
+    );
 }

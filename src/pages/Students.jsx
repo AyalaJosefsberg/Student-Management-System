@@ -1,7 +1,9 @@
 import { StudentCard } from '../components/StudentCard';
+import { Header } from '../components/Header';
 export function Students({ students }) {
     return (
         <div>
+            <Header title="רשימת תלמידות" />
             <div className="grid-container">
                 {students?.map(student => (
                     <StudentCard 

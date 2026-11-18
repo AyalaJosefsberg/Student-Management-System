@@ -240,7 +240,7 @@ body {
 }
 /* --- עיצוב כללי לאפליקציה --- */
 body {
-  margin: 0;
+  margin: 20px;;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #f1f5f9;
   color: #1e293b;

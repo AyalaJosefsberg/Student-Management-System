@@ -8,6 +8,11 @@ export function SideBar() {
         <ul className="sidebar-list">
           <li>
             <NavLink to="/" end className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+              בית
+            </NavLink>
+          </li> 
+          <li>
+            <NavLink to='/dashboard' className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
               דשבורד
             </NavLink>
           </li>
@@ -21,11 +26,6 @@ export function SideBar() {
               תלמידות מצטיינות
             </NavLink>
           </li>
-            <li>
-            <NavLink to="/student" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
-             פרטי תלמידה
-            </NavLink>
-          </li>       
         </ul>
       </nav>
     </aside>
